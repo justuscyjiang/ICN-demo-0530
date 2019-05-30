@@ -1,0 +1,179 @@
+canvas {
+    border: none;
+}
+
+.connect {
+    position: fixed;
+    top: 130px;
+}
+
+.msg {
+    position: fixed;
+    top: 300px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 16px;
+    color: white;
+    background: rgb(6, 0, 63);
+}
+
+.photobooth {
+    max-width: 80%;
+    position: fixed;
+    left: 270px;
+    top: 0px;
+    width: 700px;
+    /* 太寬會占用到strip */
+    border-radius: 2px;
+}
+
+
+/*clearfix*/
+
+.photobooth:after {
+    content: '';
+    display: block;
+    /* clear: both; */
+}
+
+.bgphoto {
+    display: none;
+}
+
+.photo {
+    /* 大視窗 */
+    z-index: -6;
+    position: relative;
+    width: 85%;
+    background: black
+}
+
+.player {
+    /*小視窗*/
+    z-index: -5;
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+h1 {
+    font-size: 3em;
+    color: white;
+}
+
+button {
+    float: top;
+    background-color: rgb(243, 203, 22);
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    color: rgb(10, 0, 53);
+    background-color: rgb(255, 251, 0);
+}
+
+.control {
+    width: 130px;
+    height: 30px;
+}
+
+.emoji,
+.filter,
+.set_fg {
+    width: 65px;
+    height: 30px;
+}
+
+
+/*
+  Strip!
+*/
+
+.strip {
+    float: left;
+    margin-left: 1000px;
+    margin-top: 130px;
+}
+
+.strip img {
+    width: 120px;
+    height: 90px;
+    overflow-x: scroll;
+    padding: 0.6rem 0.6rem 0.6rem 0.6rem;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background: rgba(67, 216, 74, 0.575);
+}
+
+#snow {
+    background-color: transparent;
+    background-image: url(http://wp.agens.no/smakebit/wp-content/themes/smakebiten/img/snow1.png), url(http://wp.agens.no/smakebit/wp-content/themes/smakebiten/img/snow2.png);
+    -webkit-animation: snow 20s linear infinite;
+    -moz-animation: snow 20s linear infinite;
+    -ms-animation: snow 20s linear infinite;
+    animation: snow 20s linear infinite;
+    z-index: -4;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin-top: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 595px;
+}
+
+
+/*Keyframes*/
+
+@keyframes snow {
+    0% {
+        background-position: 0px 0px, 0px 0px, 0px 0px
+    }
+    100% {
+        background-position: 500px 1000px, 400px 400px, 300px 300px
+    }
+}
+
+@-moz-keyframes snow {
+    0% {
+        background-position: 0px 0px, 0px 0px, 0px 0px
+    }
+    100% {
+        background-position: 500px 1000px, 400px 400px, 300px 300px
+    }
+}
+
+@-webkit-keyframes snow {
+    0% {
+        background-position: 0px 0px, 0px 0px, 0px 0px
+    }
+    100% {
+        background-position: 500px 1000px, 400px 400px, 300px 300px;
+    }
+}
+
+@-ms-keyframes snow {
+    0% {
+        background-position: 0px 0px, 0px 0px, 0px 0px
+    }
+    100% {
+        background-position: 500px 1000px, 400px 400px, 300px 300px
+    }
+}

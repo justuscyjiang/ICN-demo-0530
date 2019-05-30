@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Posaune</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="s.css">
+    <link rel="Shortcut Icon" type="image/x-icon" href="trb.ico">
+</head>
+
+<body>
+    <div class="connect" id="container">
+        <div class="msg">
+            <label>Your ID:</label><br/>
+            <textarea id="yourId"></textarea><br/>
+            <label>Other ID:</label><br/>
+            <textarea id="otherId"></textarea><br/>
+            <button id="connect" class="control">connect</button><br/>
+
+            <label>Enter Message:</label><br/>
+            <textarea id="yourMessage"></textarea><br/>
+            <button id="send" class="control">send</button><br/>
+            <pre id="messages"></pre>
+        </div>
+    </div>
+    <div class="photobooth">
+        <h1>Look at yourself(? 👻</h1>
+        <button id="cam" class="control">Start WebCam</button>
+        <button id="play" class="control">Play Video</button>
+        <button id="pause" class="control">Pause Video</button>
+        <button id="snap" class="control">Snapshot 📸</button>
+        <div id="mother" style="position: relative">
+            <!-- <video class="bgphoto" id="large"></video> -->
+            <!-- <video class="player" id="small"></video> -->
+            <canvas id="canvasOutput" class="photo"></canvas>
+            <!-- <section class="foreground" id="snow"></section> -->
+        </div>
+        <div>
+            <button class="emoji" id="circle">Circles</button>
+            <button class="emoji" id="heart">Heart</button>
+            <button class="emoji" id="star">Star</button>
+            <button class="emoji" id="?">?</button>
+        </div>
+        <div>
+            <button class="filter" id="pass">None</button>
+            <button class="filter" id="gray">Gray</button>
+            <button class="filter" id="erosion">Erosion</button>
+            <button class="set_fg" id="b_snow">Snow</button>
+        </div>
+    </div>
+    <div class="strip"></div>
+    <img id="source" src="trb.png" style="display:none">
+
+</body>
+
+<script src="bundle.js " charset="utf-8 "></script>
+<script src="explode.js "></script>
+<script src="https://huningxin.github.io/opencv.js/build/asm.js/opencv.js "></script>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js "></script>
+
+</html>

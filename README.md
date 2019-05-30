@@ -6,7 +6,16 @@ Video chatroom.
 
 (Just a simple demonstration of some of functions that can be used in the project.)
 
-## Note ##
+## Feature ##
+
++ Video and audio duplex streaming
++ Message delivery
++ Downloadable snapshot image
++ Emoji popup
++ OpenCV image processing
++ Snowing foreground
+
+## Preparation ##
 
 1. Install `getusermedia`, `simple-peer`, `budo`.
 2. Add `"start": "budo index.js:bundle.js",` to `"scripts"` in `package.json`.
@@ -35,5 +44,4 @@ Video chatroom.
 
 ![screenshot](C:\Users\JustusHr\Desktop\ICN\ICN-demo-0530\screenshot.png)
 
-......
-
+The above screenshot shows a snowing foreground and three downloadable images, each of which was taken while using image filter of "Erosion", "Gray", and "None", respectively.

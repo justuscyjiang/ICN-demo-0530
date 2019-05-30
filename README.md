@@ -42,6 +42,6 @@ Video chatroom.
 
 ## Screenshot ##
 
-![screenshot](C:\Users\JustusHr\Desktop\ICN\ICN-demo-0530\screenshot.png)
+![screenshot](screenshot.png)
 
 The above screenshot shows a snowing foreground and three downloadable images, each of which was taken while using image filter of "Erosion", "Gray", and "None", respectively.

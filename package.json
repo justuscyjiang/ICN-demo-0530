@@ -1,16 +1,17 @@
 {
-    "name": "ICN-demo-0530",
+    "name": "ver01jcy",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "budo index.js:bundle.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "budo index.js:bundle.js"
     },
     "keywords": [],
     "author": "",
-    "license": "ISC",
-    "devDependencies": {
+    "license": "MIT",
+    "dependencies": {
+        "browserify-fs": "^1.0.0",
         "budo": "^11.6.2",
         "getusermedia": "^2.0.1",
         "simple-peer": "^9.3.0"

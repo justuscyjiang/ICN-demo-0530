@@ -1,4 +1,8 @@
 var getUserMedia = require('getusermedia')
+
+// var fs = require('fs')
+var fs = require('browserify-fs');
+
 const strip = document.querySelector('.strip');
 var anchors = document.getElementsByClassName('emoji')
 var filters = document.getElementsByClassName('filter')
@@ -19,6 +23,8 @@ let dstC4 = null;
 var foreground = false;
 
 var filterUse = null;
+
+var username
 
 Array.prototype.forEach.call(filters, function(filter) {
     filter.addEventListener('click', function() {
@@ -59,16 +65,44 @@ function StartStream() {
         var peer = new Peer({
             initiator: location.hash === '#init',
             trickle: false,
+            // trickle: true,
             stream: stream2
+                // config:
         })
 
         peer.on('signal', function(data) {
             document.getElementById('yourId').value = JSON.stringify(data)
+            fs.writeFile('/home/' + username + '.txt', JSON.stringify(data), function() {});
         })
+
+
+        // document.getElementById('test').addEventListener('click', function() {
+        //     fs.mkdir('/home', function() {
+        //         fs.readFile('/home/' + username + '.txt', 'utf-8', function(err, data) {
+        //             console.log(data);
+        //         });
+        //     });
+        // })
+
+        // document.getElementById('clean').addEventListener('click', function() {
+        //     fs.writeFile('/home/' + username + '.txt', 'none', function() {});
+        // })
+
+
 
         document.getElementById('connect').addEventListener('click', function() {
             var otherId = JSON.parse(document.getElementById('otherId').value)
             peer.signal(otherId)
+        })
+
+        document.getElementById('find').addEventListener('click', function() {
+            var otherName = document.getElementById('otherName').value
+            console.log(otherName)
+            if (otherName) {
+                fs.readFile('/home/' + otherName + '.txt', 'utf-8', function(err, data) {
+                    document.getElementById('otherId').value = data
+                });
+            }
         })
 
         document.getElementById('send').addEventListener('click', function() {
@@ -115,6 +149,8 @@ function StartStream() {
 
         peer.on('stream', function(stream1) {
 
+
+
             var video1 = document.createElement('video')
             mom.appendChild(video1)
             video1.className = "bgphoto"
@@ -126,16 +162,22 @@ function StartStream() {
             video2.className = "player"
             video2.id = "small"
             video2.srcObject = stream2
+                // video2.play()
 
             document.getElementById('pause').addEventListener('click', function() {
                 video2.pause()
+                    // video1.pause()
                 peer.send("#pause")
             })
 
             document.getElementById('play').addEventListener('click', function() {
                 video2.play()
+                    // video1.pause()
                 peer.send("#play")
+                fs.writeFile('/home/' + username + '.txt', 'none', function() {});
             })
+
+
 
             document.getElementById('snap').addEventListener('click', function() {
                 const canvas = document.getElementById("canvasOutput");
@@ -216,4 +258,9 @@ function StartStream() {
 
 document.getElementById('cam').addEventListener('click', function() {
     StartStream()
+    username = prompt('What\'s your username?');
+    fs.mkdir('/home', function() {
+        fs.writeFile('/home/' + username + '.txt', '', function() {});
+    });
+
 })

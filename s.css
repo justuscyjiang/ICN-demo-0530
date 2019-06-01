@@ -4,12 +4,12 @@ canvas {
 
 .connect {
     position: fixed;
-    top: 130px;
+    top: 50px;
 }
 
 .msg {
     position: fixed;
-    top: 300px;
+    top: 50px;
 }
 
 html {
